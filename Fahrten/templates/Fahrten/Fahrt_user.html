@@ -1,0 +1,19 @@
+<a class="lead" href="{% url 'fahrt_detail' pk=Fahrten.pk %}"> Fahrtname: {{ Fahrten.Bezeichnung }}</a>
+{% if Fahrten.Kuschikbezeichnung %}
+  <br>Kuschik-ID: {{ Fahrten.Kuschikbezeichnung|linebreaksbr }}
+{% endif %}
+{% if Fahrten.Schule.Name %}
+  <br>Schule: {{ Fahrten.Schule.Name|linebreaksbr }}
+{% endif %}
+{% if Fahrten.Schule.Kunde.Name %}
+  <br>Kunde: {{ Fahrten.Schule.Kunde.Name|linebreaksbr }}
+{% endif %}
+<br>Datum: {{ Datum }}
+<form class="navbar-form navbar-right" role="form" action="{% url "fahrt_absage" pk=Fahrten.pk  %}"
+    method="post" accept-charset="utf-8">
+    <input type="hidden" placeholder="" value="{{ Datum }}" class="form-control" name="datum">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-success">Fahrt absagen</button>
+</form>
+
+
