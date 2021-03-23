@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'import_export',
     'djmoney',
     'debug_toolbar',
-    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -143,6 +142,7 @@ LOGOUT_URL = 'mysite_logout'
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+MEDIA_ROOT = Path(BASE_DIR / 'media')
 if DEBUG:
     import mimetypes
     mimetypes.add_type("application/javascript", ".js", True)
